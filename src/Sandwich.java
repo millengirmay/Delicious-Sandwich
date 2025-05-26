@@ -27,7 +27,7 @@ public class Sandwich implements MenuItem{
         StringBuilder sb = new StringBuilder();
         sb.append(" ").append(getName()).append("\n");
         for(Topping t: toppings){
-            sb.append("  -").append(t.getName()).append("($").append(String.format("%.2f", t.getPrice())));
+            sb.append("  -").append(t.getName()).append("($").append(String.format("%.2f", t.getPrice()));
         }
         return sb.toString();
     }
