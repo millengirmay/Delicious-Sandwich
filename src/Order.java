@@ -40,8 +40,7 @@ public class Order {
             Files.write(file,getSummary().getBytes());
             System.out.println("Receipt saved: " + file);
         } catch (IOException e) {
-            System.out.println("Error saving reciept: " + e.getMessage());
+            System.out.println("Error saving receipt: " + e.getMessage());
         }
-
         }
 }
