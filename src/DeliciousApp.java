@@ -38,9 +38,14 @@ public class DeliciousApp {
 
     public static void main(String[] args) {
         while(true){
-            System.out.println("*-*-*-*-*-*-*-\nWelcome to Delicious sandwich!*-*-*-*-*-*-*-*-*");
-            System.out.println("*-*-*-*-*-*-*--*-[1] New Order -*-*-*-*-*-*-*-*-*-");
-            System.out.println("*-*-*-*-*-*-*-*-*- [0] Exit *-*-*-*-*-*-*-*-*");
+            //System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-\uD83E\uDD6A Welcome to Delicious sandwich *-*-*-*-*-*-*-*-*");
+            System.out.println("   ┌──────────────────────────────────────────────┐");
+            System.out.println("   🥪  Welcome to DELI-cious Sandwich Builder!");
+            System.out.println("   🌯  Custom flavors made fresh just for you!");
+            System.out.println("   └──────────────────────────────────────────────┘");
+
+            System.out.println("[1] New Order ");
+            System.out.println("[0] Exit ");
             String choice = scanner.nextLine();
 
             if(choice.equals("1")){
@@ -51,7 +56,7 @@ public class DeliciousApp {
         }
     }
 
-    private static void takeorder(){
+    private static void takeOrder(){
         Order order = new Order();
         while(true){
             System.out.println("*-*-*-*-*-*-*-*-*\nOrder Menu *-*-*-*-*-*-*-*-*-");
