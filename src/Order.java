@@ -1,4 +1,5 @@
 import javax.imageio.IIOException;
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -38,9 +39,9 @@ public class Order {
             Path file = dir.resolve(timestamp + ".txt");
             Files.write(file,getSummary().getBytes());
             System.out.println("Receipt saved: " + file);
-        }catch(IIOException e){
+        } catch (IOException e) {
             System.out.println("Error saving reciept: " + e.getMessage());
         }
 
-    }
+        }
 }
