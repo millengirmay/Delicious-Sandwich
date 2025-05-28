@@ -13,7 +13,7 @@ public class SignatureSandwich extends Sandwich{
         List<Topping> toppings = new ArrayList<>();
         if(name.equalsIgnoreCase("blt")){
             toppings.add(new Topping("bacon", 2.50, false));
-            toppings.add(new Topping("bacon", 2.50, false));
+            toppings.add(new Topping("cheddar", 1.25, false));
             toppings.add(new Topping("bacon", 2.50, false));
             toppings.add(new Topping("bacon", 2.50, false));
             toppings.add(new Topping("bacon", 2.50, false));
