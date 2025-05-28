@@ -171,7 +171,7 @@ public class DeliciousApp {
         return new Sandwich(size + "\"", bread, toppings, toasted);
     }
 
-    private static Drink createDrink(){
+    private static DrinkSize createDrink(){
         System.out.println("Select size: small, Medium, Large");
         String size = scanner.nextLine();
         double price = switch (size.toLowerCase()){
@@ -181,7 +181,7 @@ public class DeliciousApp {
         };
         System.out.println("Enter Flavor:");
         String flavor = scanner.nextLine();
-        return new Drink(size, price, flavor);
+        return new DrinkSize(size, price, flavor);
     }
 
     private static Chips createChips(){

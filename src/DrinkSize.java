@@ -1,9 +1,9 @@
-public class Drink implements MenuItem{
+public class DrinkSize implements MenuItem{
     private String size;
     private double price;
     private String flavor;
 
-    public Drink(String size, double price, String flavor){
+    public DrinkSize(String size, double price, String flavor){
         this.size = size;
         this.price = price;
         this.flavor = flavor;
