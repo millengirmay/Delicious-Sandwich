@@ -14,7 +14,8 @@ public class SignatureSandwich extends Sandwich{
         if(name.equalsIgnoreCase("blt")){
             toppings.add(new Topping("bacon", 2.50, false));
             toppings.add(new Topping("bacon", 2.50, false));
-            toppings.add(new Topping("bacon", 2.50, false))
+            toppings.add(new Topping("bacon", 2.50, false));
+            toppings.add(new Topping("bacon", 2.50, false));
 
 
         }
