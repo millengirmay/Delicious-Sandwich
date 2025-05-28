@@ -22,7 +22,7 @@ public class SignatureSandwich extends Sandwich{
             toppings.add(new Topping("american", 1.25, false));
             toppings.add(new Topping("peppers", 0.0, false));
             toppings.add(new Topping("mayo", 0.0, false));
-
         }
+        return toppings;
     }
 }
