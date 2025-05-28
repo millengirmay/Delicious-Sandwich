@@ -17,6 +17,8 @@ public class SignatureSandwich extends Sandwich{
             toppings.add(new Topping("lettuce", 0.0, false));
             toppings.add(new Topping("tomato", 0.0, false));
             toppings.add(new Topping("ranch", 0.0, false));
-        } else
+        } else if (name.equalsIgnoreCase("philly")){
+
+        }
     }
 }
