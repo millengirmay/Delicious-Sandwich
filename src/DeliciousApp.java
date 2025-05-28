@@ -1,3 +1,8 @@
+import java.io.IOException;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -31,35 +36,59 @@ public class DeliciousApp {
             "cheddar", 0.75,
             "swiss", 0.75
     );
-    private static final List<String> regularToppings = List.of("lettuce", "peppers", "onions", "tomatos",
+    private static final List<String> regularToppings = List.of("lettuce", "peppers", "onions", "tomatoes",
             "jalapenos", "cucumber", "pickles", "guacamole", "mushrooms");
     private static final List<String> sauces = List.of("mayo", "mustard", "ketchup", "ranch",
             "thousand island", "vinaigrette");
 
     public static void main(String[] args) {
+        Order currentOrder = new Order();
         while(true){
             //System.out.println("*-*-*-*-*-*-*-*-*-*-*-*-\uD83E\uDD6A Welcome to Delicious sandwich *-*-*-*-*-*-*-*-*");
             System.out.println("   ┌──────────────────────────────────────────────┐");
-            System.out.println("   🥪  Welcome to DELI-cious Sandwich Builder!");
+            System.out.println("   🥪  Welcome to DELI-cious Sandwich");
             System.out.println("   🌯  Custom flavors made fresh just for you!");
             System.out.println("   └──────────────────────────────────────────────┘");
 
             System.out.println("[1] New Order ");
+            System.out.println("[2] View All Receipts ");
             System.out.println("[0] Exit ");
             String choice = scanner.nextLine();
 
             if(choice.equals("1")){
+                currentOrder.clear();
                 takeOrder();
+            }else if(choice.equals("2")){
+                viewReceipts();
             }else if(choice.equals("0")){
                 break;
             }
         }
     }
 
+    private static void viewReceipts() {
+        Path dir = Paths.get("receipts");
+        if (!Files.exists(dir)) {
+            System.out.println("No receipts found.");
+            return;
+        }
+
+        try
+            (DirectoryStream < Path > stream = Files.newDirectoryStream(dir)) {
+                for (Path file : stream) {
+                    System.out.println("*-*-*-*-" + file.getFileName() + "*-*-*-*-*");
+                    List<String> lines = Files.readAllLines(file);
+                    lines.forEach(System.out::println);
+                }
+            }catch(IOException e){
+                System.out.println("Error reading receipts: " + e.getMessage());
+            }
+        }
+
     private static void takeOrder(){
         Order order = new Order();
         while(true){
-            System.out.println("*-*-*-*-*-*-*-*-*\nOrder Menu *-*-*-*-*-*-*-*-*-");
+            System.out.println("*-*-*-*-*-*-*-*-*-* Order Menu *-*-*-*-*-*-*-*-*-");
             System.out.println("*-*-*-*-*-*-*-*-*[1] Add Sandwich *-*-*-*-*-*-*-*-*-");
             System.out.println("*-*-*-*-*-*-*-*-*[2] Add Drink *-*-*-*-*-*-*-*-*-");
             System.out.println("*-*-*-*-*-*-*-*-*[3] Add Chips *-*-*-*-*-*-*-*-*-");
@@ -98,7 +127,7 @@ public class DeliciousApp {
         String breadChoice = scanner.nextLine().toLowerCase();
         double basePrice = breadPrices.getOrDefault(breadChoice, 5.50);
 
-        System.out.println("select Size (4,8,12)");
+        System.out.println("select Size (4, 8, 12)");
         String size = scanner.nextLine();
         double sizeAddPrice = sizeAdd.getOrDefault(size, 0.0);
 
@@ -122,6 +151,13 @@ public class DeliciousApp {
                 toppings.add(new Topping(k,v + sizeAddPrice, extra));
             }
         });
+
+        for(String topping: regularToppings){
+            System.out.println("Add " + topping + "Yes/No");
+            if(scanner.nextLine().equalsIgnoreCase("Yes")){
+                toppings.add(new Topping(topping, 0.0, false));
+            }
+        }
 
         for(String sauce : sauces){
             System.out.println("Add sauce " + sauce + "? Yes/No");

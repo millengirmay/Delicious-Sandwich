@@ -14,8 +14,7 @@ public class Sandwich implements MenuItem{
     }
 
     public String getName(){
-        return size + " Sandwich on " + bread.getName()
-+ (toasted ? "(Toasted)": "");
+        return size + " Sandwich on " + bread.getName() + (toasted ? "(Toasted)": "");
     }
 
     public double getPrice(){

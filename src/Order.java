@@ -31,6 +31,7 @@ public class Order {
             sb.append("Total: $").append(String.format("%.2f", getTotal())).append(String.format("%.2f", getTotal())).append("\n");
             return sb.toString();
         }
+
         public void saveReceipt(){
         String timestamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         Path dir = Paths.get("receipts");
@@ -42,5 +43,9 @@ public class Order {
         } catch (IOException e) {
             System.out.println("Error saving receipt: " + e.getMessage());
         }
+        }
+
+        public void clear(){
+            items.clear();
         }
 }
