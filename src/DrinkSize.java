@@ -1,5 +1,5 @@
 public class DrinkSize {
-    static String Small = "small";
-    static String Medium = "medium";
-    static String Large = "large";
+    public static String Small = "small";
+    public static String Medium = "medium";
+    public static String Large = "large";
 }
