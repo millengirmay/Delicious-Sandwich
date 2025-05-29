@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Chips implements PricedItem {
+public class Chips implements ItemCost {
     private final String flavour;
     private static  final double price = 1.50;
 
@@ -9,7 +9,7 @@ public class Chips implements PricedItem {
     }
 
     //Chips flavour
-    public static final List<String> chipsOption = List.of("BBQ", "Sour Cream", "Salt & Vinegar", "Jalapeño", "Lays Classic");
+    public static final List<String> chipsOptions = List.of("Sweet Potato", "PopChips", "Kettle Brand", "Classic French");
     @Override
     public double getPrice() {
         return price;
