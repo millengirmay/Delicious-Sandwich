@@ -111,7 +111,7 @@ public class Menu {
         // 1. Bread selection first
         String bread = null;
         while (bread == null) {
-            System.out.println("\n🥖 STEP 1: CHOOSE YOUR BREAD TYPE");
+            System.out.println("\n🥖 CHOOSE YOUR BREAD TYPE");
             String chosenBread = selectFromList("Available bread options", Topping.breadOptions);
             if (chosenBread == null) {
                 System.out.println("⚠️ Bread selection skipped. You must choose a bread type to continue.");
