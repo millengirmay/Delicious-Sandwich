@@ -72,9 +72,7 @@ Represents an individual sandwich topping.
 
 Fields: String name, String category
 
-Methods:
-
-Validates name/category
+Methods: Validates name/category
 
 Calculates topping price based on size and type (e.g., MEAT, CHEESE)
 
@@ -84,57 +82,36 @@ Used inside Sandwich
 🔹 Sandwich implements ItemCost
 Represents a customizable sandwich.
 
-Fields:
-
-int size (4, 8, 12 inches)
-
-String breadType
+Fields: int size (4, 8, 12 inches), String breadType, boolean toasted
 
 List<Topping> toppings
 
-boolean toasted
+Methods: getPrice() → base + topping prices
 
-Methods:
-
-getPrice() → base + topping prices
-
-toString() → summary of sandwich
-
+       toString() → summary of sandwich
 
 🔹 SignatureSandwich extends Sandwich
 Represents predefined sandwiches with fixed base price.
 
-Fields:
+Fields: String name
 
-String name
-
-Overrides:
-
-getPrice() → $12 base + extra toppings
+Overrides:  getPrice() →  base + extra toppings
 
 Used for customer favorites
-
 
 🔹 Chips implements ItemCost
 Represents a chip side item.
 
 Fields: String flavor
 
-Methods:
-
-getPrice() → $1.50
-
-toString()
-
+Methods: getPrice() → $1.50, toString()
 
 🔹 Drink implements ItemCost
 Represents a drink item.
 
 Fields: String size (small, medium, large)
 
-Methods:
-
-getPrice():
+Methods: getPrice():
 
 Small → $2.00
 
@@ -150,9 +127,7 @@ Handles the entire customer order.
 
 Fields: List<ItemCost> items
 
-Methods:
-
-addItem(ItemCost item)
+Methods: addItem(ItemCost item)
 
 double checkout() → sum of item prices
 
