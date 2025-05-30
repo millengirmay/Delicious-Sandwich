@@ -1,3 +1,13 @@
+
+![image](https://github.com/user-attachments/assets/b8bc52be-ac77-477c-8cf4-089f140d31f6)
+
+
+
+
+
+
+
+
 ****Project Overview****
 
 The Sandwich Ordering System is a Java-based application modeling a customizable sandwich shop menu. It supports:
@@ -11,6 +21,7 @@ Signature sandwiches with fixed base prices plus extra toppings
 Price calculation based on sandwich size and toppings
 
 This modular design leverages Java OOP principles with inheritance, encapsulation, and interface implementation.
+
 
 ****Key Features****
 
@@ -64,7 +75,7 @@ Includes extra toppings that add to the price.
 
 Overrides price calculation to use fixed price + extra toppings cost.
 
-*****Interesting Code Highlights***
+*****Interesting Code Highlights*****
 
     public void checkout() {
         for (ItemCost item : items) {
@@ -78,7 +89,10 @@ Overrides price calculation to use fixed price + extra toppings cost.
      }
     }
 
-****Screnshots***
+    
+
+****Screnshots****
+
 <img width="943" alt="1" src="https://github.com/user-attachments/assets/41b321a9-9507-4ad1-ae28-8de603caeff4" />
 <img width="950" alt="2" src="https://github.com/user-attachments/assets/196398f5-4798-43f4-8e0e-3d8c68a216b9" />
 <img width="936" alt="3" src="https://github.com/user-attachments/assets/01610797-e81f-4c3a-bcf5-b16d53adf039" />
