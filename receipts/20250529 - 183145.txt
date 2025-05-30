@@ -1,0 +1,7 @@
+DELI-SHOP Receipt
+Time: 20250529 - 183145
+.Sandwich: 8" SOURDOUGH bread   (toasted) $7.00
+Bread type: SOURDOUGH $7.00
+Subtotal:                      $7.00
+Tax (10.25%):                  $0.72
+Total: $7.72

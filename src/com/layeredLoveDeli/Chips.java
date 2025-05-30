@@ -1,24 +1,26 @@
+package com.layeredLoveDeli;
+
 import java.util.List;
 
 public class Chips implements ItemCost {
-    private final String flavour;
+    private final String Type;
     private static  final double price = 1.50;
 
     public Chips(String flavour) {
-        this.flavour = flavour.toUpperCase();
+        this.Type = flavour.toUpperCase();
     }
 
-    //Chips flavour
+    //Available chips flavors
     public static final List<String> chipsOptions = List.of("Sweet Potato", "PopChips", "Kettle Brand", "Classic French");
     @Override
     public double getPrice() {
         return price;
     }
-    public String getFlavour(){
-        return flavour;
+    public String getType(){
+        return Type;
     }
     @Override
     public String toString(){
-        return flavour + " Chips";
+        return Type + " .Chips";
     }
 }

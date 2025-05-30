@@ -1,0 +1,11 @@
+Layered Love Deli Receipt
+Time: 20250529 - 232953
+.Sandwich: 4" SOURDOUGH bread  with Roast Beef, Lettuce  (toasted) $6.50
+Bread type: SOURDOUGH $5.50
+Roast Beef            $1.00
+Lettuce               $0.00
+Bag                   $0.08
+Subtotal:                      $6.58
+Tip:                           $0.98
+Tax (10.25%):                  $0.77
+Total: $8.33

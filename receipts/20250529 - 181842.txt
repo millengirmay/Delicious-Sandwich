@@ -1,0 +1,9 @@
+DELI-SHOP Receipt
+Time: 20250529 - 181842
+.Sandwich: 8" BAGEL bread   (toasted) $7.00
+Bread type: BAGEL     $7.00
+MEDIUM DIET COKE drink $2.50
+POPCHIPS .Chips        $1.50
+Subtotal:                      $11.00
+Tax (10.25%):                  $1.13
+Total: $12.13

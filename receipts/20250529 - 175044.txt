@@ -1,0 +1,9 @@
+DELI-SHOP Receipt
+Time: 20250529 - 175044
+.Sandwich: 8" SOURDOUGH bread   (toasted) $7.00
+Bread type: SOURDOUGH $7.00
+SMALL WATER drink     $2.00
+CLASSIC FRENCH .Chips  $1.50
+Subtotal:                      $10.50
+Tax (10.25%):                  $1.08
+Total: $11.58
