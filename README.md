@@ -7,7 +7,11 @@
 
 
 
-****Project Overview****
+*****🥪 DELI-cious Sandwich Ordering System*****
+
+
+****📋 Project Overview****
+
 
 The Sandwich Ordering System is a Java-based application modeling a customizable sandwich shop menu. It supports:
 
@@ -24,58 +28,209 @@ This modular design leverages Java OOP principles with inheritance, encapsulatio
 
 
 
-****Key Features****
-
-Sandwich customization: Select size, bread, toppings, and toasting option.
+****🔑 Key Features****
 
 
-Topping pricing: Costs vary by topping category and sandwich size.
+Build Your Own Sandwich: Choose size, bread, toppings, and toasting options.
+
+Signature Sandwiches: Predefined customer favorites with fixed base prices.
+
+Add Chips & Drinks: Select flavors and sizes for sides.
+
+Real-Time Pricing: Prices calculated dynamically based on size and toppings.
+
+Full Receipt: Generates a detailed summary of the order.
+
+Robust Input Validation: Guards against invalid entries for toppings, bread, and sizes.
+
+Extensible Design: Easy to add new items, sizes, or toppings.
 
 
-Signature sandwiches: Predefined popular sandwiches with fixed base price.
+****🧱 Class & Interface Overview****
 
 
-Robust validation: Ensures valid sizes, bread types, and topping categories.
+🔹 ItemCost (Interface)
+Defines the method:
+
+double getPrice();
+
+Implemented by:
+
+Sandwich
+
+SignatureSandwich
+
+Chips
+
+Drink
 
 
-Extensibility: Easily add new topping categories, bread types, or signature sandwiches.
+🔹 Topping
+Represents an individual sandwich topping.
+
+Fields: String name, String category
+
+Methods:
+
+Validates name/category
+
+Calculates topping price based on size and type (e.g., MEAT, CHEESE)
+
+Used inside Sandwich
 
 
-Main Classes and Interfaces
-ItemCost (interface)
-Declares the method double getPrice() for calculating an item's price.
+🔹 Sandwich implements ItemCost
+Represents a customizable sandwich.
 
-Topping
-Represents a sandwich topping.
+Fields:
 
-Has a category (MEAT, CHEESE, SAUCE, etc.) and a name.
+int size (4, 8, 12 inches)
 
-Calculates topping price based on sandwich size and category.
+String breadType
 
-Validates toppings against a predefined list of valid options.
+List<Topping> toppings
 
-Sandwich implements ItemCost
-Represents a sandwich with:
+boolean toasted
 
-Size (4, 8, or 12 inches)
+Methods:
 
-Bread type (white, wheat, rye, wrap, sourdough, bagel)
+getPrice() → base + topping prices
 
-List of toppings
+toString() → summary of sandwich
 
-Toasted or not
 
-Calculates price as base price + toppings prices.
+🔹 SignatureSandwich extends Sandwich
+Represents predefined sandwiches with fixed base price.
 
-Provides a descriptive toString() method.
+Fields:
 
-SignatureSandwich extends Sandwich
-Represents special, named sandwiches with a fixed base price ($12).
+String name
 
-Includes extra toppings that add to the price.
+Overrides:
 
-Overrides price calculation to use fixed price + extra toppings cost.
+getPrice() → $12 base + extra toppings
 
+Used for customer favorites
+
+
+🔹 Chips implements ItemCost
+Represents a chip side item.
+
+Fields: String flavor
+
+Methods:
+
+getPrice() → $1.50
+
+toString()
+
+
+🔹 Drink implements ItemCost
+Represents a drink item.
+
+Fields: String size (small, medium, large)
+
+Methods:
+
+getPrice():
+
+Small → $2.00
+
+Medium → $2.50
+
+Large → $3.00
+
+toString()
+
+
+🔹 Order
+Handles the entire customer order.
+
+Fields: List<ItemCost> items
+
+Methods:
+
+addItem(ItemCost item)
+
+double checkout() → sum of item prices
+
+String generateReceipt() → formatted full receipt
+
+
+🔹 Menu
+The CLI interface that drives user interaction.
+
+Presents sandwich, chip, and drink options.
+
+Collects user inputs and creates corresponding objects.
+
+Handles looped ordering and checkout flow.
+
+
+🔹 Display
+A utility/helper class responsible for printing messages and menus.
+
+Clean separation of UI logic from business logic.
+
+Used by Menu to print options, prompts, errors, and instructions.
+
+
+🔹 DELIciousApp
+The application entry point.
+
+Contains the main() method.
+
+Initializes and runs the program via the Menu class.
+
+
+****📊 UML Class Diagram****
+
+
+<img width="467" alt="image" src="https://github.com/user-attachments/assets/cf4b1c21-bf7e-4e07-87c1-3cf15dc3a376" />
+
+
+****▶️ How to Run the App****
+
+Clone the repository
+git clone <repo_url>
+
+Navigate to the project folder
+cd DELIcious
+
+Compile the project
+javac *.java
+
+Run the app
+java DELIciousApp
+
+
+****📄 Sample CLI Output****
+
+    Welcome to DELI-cious Sandwich Shop!
+     1. Build Your Own Sandwich
+     2. Choose Signature Sandwich
+     3. Add Chips
+     4. Add Drink
+     5. Checkout
+
+    >> Sandwich (12", White, Toasted)
+     + chicken, Lettuce, Mayo
+    >> Chips: Sweat potato
+    >> Drink: Medium
+
+     Total: $18.50
+    Thank you for visiting Layered love Deli!
+
+    
+*****📦 Future Improvements*****
+
+GUI integration (Swing or JavaFX)
+
+Save/load previous orders
+
+Loyalty system with customer profiles
+
+Receipt export to .txt or .pdf
 
 
 *****Interesting Code Highlights*****
