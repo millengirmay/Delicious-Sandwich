@@ -1,5 +1,6 @@
 
-![image](https://github.com/user-attachments/assets/3095d28a-6241-4aed-80e5-9578d8451dfc)
+![image](https://github.com/user-attachments/assets/95bf5d4d-2eae-4292-9712-2b48a60fb9b6)
+
 
 
 
@@ -44,6 +45,7 @@ Full Receipt: Generates a detailed summary of the order.
 Robust Input Validation: Guards against invalid entries for toppings, bread, and sizes.
 
 Extensible Design: Easy to add new items, sizes, or toppings.
+
 
 
 ****🧱 Class & Interface Overview****
@@ -206,8 +208,8 @@ java DELIciousApp
 
 ****📄 Sample CLI Output****
 
-    Welcome to DELI-cious Sandwich Shop!
-     1. Build Your Own Sandwich
+    Welcome to Layered Love Deli!
+     1. Get ready Your Own Sandwich
      2. Choose Signature Sandwich
      3. Add Chips
      4. Add Drink
