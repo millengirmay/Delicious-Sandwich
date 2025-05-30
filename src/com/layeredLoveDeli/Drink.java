@@ -22,6 +22,14 @@ public class Drink implements ItemCost {
             "LARGE", List.of("Water", "Coke", "Diet Coke", "Sprite", "Fanta", "Dr Pepper", "Mountain Dew", "Ginger Ale")
     );
 
+    public String getSize() {
+        return size;
+    }
+
+    public String getFlavour() {
+        return flavor;
+    }
+
     @Override
     public double getPrice() {
         return switch (size) {
@@ -31,6 +39,7 @@ public class Drink implements ItemCost {
             default -> throw new IllegalArgumentException(".Drink size unavailable: " + size);
         };
     }
+
 
     @Override
     public String toString() {

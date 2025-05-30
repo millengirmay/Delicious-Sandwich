@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Menu {
     Scanner scanner = new Scanner(System.in);
+
+    // Main home screen loop to start or exit
     public void homeScreen() {
         boolean entered = true;
         while (entered) {
@@ -23,6 +25,7 @@ public class Menu {
         }
     }
 
+    // Main home screen loop to start or exit
     public void StartOrder() {
         Order order = new Order();
         boolean ordering = true;
@@ -34,6 +37,7 @@ public class Menu {
 
             switch (UserInput) {
                 case "1" -> {
+                    // Add a custom sandwich
                     Sandwich sandwich = addSandwich();
                     if (sandwich != null) {
                         order.addItem(sandwich);
@@ -42,6 +46,7 @@ public class Menu {
                     }
                 }
                 case "2" -> {
+                    // Add a drink
                     Drink drink = addDrink();
                     if (drink != null) {
                         order.addItem(drink);
@@ -50,6 +55,7 @@ public class Menu {
                     }
                 }
                 case "3" -> {
+                    // Add chips
                     Chips chips = addChips();
                     if (chips != null) {
                         order.addItem(chips);
@@ -58,14 +64,14 @@ public class Menu {
                     }
                 }
                 case "4" -> {
-                    // Bag handling
+                    // Bag and Tip options, then checkout
                     System.out.println("Would you like a bag? (Yes/No): ");
                     String bag = scanner.nextLine().trim().toLowerCase();
                     if (bag.equals("yes")) {
                         order.requestBag();
                         System.out.println("Bag fee of $0.08 added.");
                     }
-                    //Tip handling
+                    //Tip selection
                     System.out.println(("Would you like to leave a tip? (Yes/No): "));
                     String tipChoice = scanner.nextLine().trim().toLowerCase();
                     if (tipChoice.equals("yes")) {
@@ -84,10 +90,11 @@ public class Menu {
                             System.out.printf("Tip of %.0f%% added: $%.2f%n", percent * 100, tip);
                         }
                     }
-                    order.checkout();
+                    order.checkout(); // Finalize order
                     ordering = false;
                 }
                 case "5" -> {
+                    // Add special sandwich (Signature)
                     Sandwich sandwich = special();
                     if (sandwich != null) {
                         order.addItem(sandwich);
@@ -97,6 +104,7 @@ public class Menu {
                     }
                 }
                 case "0" -> {
+                    // Cancel order
                     System.out.println("Order canceled. Returning to home.");
                     ordering = false;
                 }
@@ -105,10 +113,11 @@ public class Menu {
         }
     }
 
+    // Custom sandwich creation
     public Sandwich addSandwich() {
         System.out.println("\n=*=*=*=*=*=*=*=*=*= Get Ready your Sandwich *=*=*=*=*=*=*=*=*=*=*=*=*=");
 
-        // 1. Bread selection first
+        // Bread selection
         String bread = null;
         while (bread == null) {
             System.out.println("\n🥖 CHOOSE YOUR BREAD TYPE");
@@ -123,7 +132,7 @@ public class Menu {
             }
         }
 
-        // 2. Size selection
+        // Size selection
         int size = 0;
         while (size != 4 && size != 8 && size != 12) {
             System.out.println("\n📏 CHOOSE YOUR SANDWICH SIZE");
@@ -150,7 +159,7 @@ public class Menu {
         }
         System.out.println("✅ " + size + "\" sandwich size selected");
 
-        // 3. Toppings selection
+        // Toppings selection
         System.out.println("\n🥬 CHOOSE YOUR TOPPINGS (Enter 0 to skip a category, B to go back)");
         List<Topping> toppings = new ArrayList<>();
         String[] toppingGroups = {"MEAT", "EXTRA MEAT", "CHEESE", "EXTRA CHEESE", "REGULAR", "SAUCE", "SIDE"};
@@ -191,7 +200,7 @@ public class Menu {
             }
         }
 
-        // 4. Toasting option
+        // Toasting
         System.out.println("\n TOASTING OPTION");
         boolean toasted = false;
         System.out.print("Would you like it toasted? (yes/no/B to go back): ");
@@ -208,45 +217,51 @@ public class Menu {
 
         return new Sandwich(size, bread, toppings, toasted);
     }
-    public Drink addDrink() {
 
-        System.out.println("\n=*=*=*=*=*=*=*=*= Add a Drink =*=*=*=*=*=*=*=*=*=*=");
+    // Drink selection method
+    public Drink addDrink() {
+        System.out.println("\n=*=*=*=*=*=*=*=*= Add Drink =*=*=*=*=*=*=*=*=*=*=");
+
         String size = null;
         while (true) {
-            System.out.println("Choose size: \nSmall  \nMedium  \nLarge:");
+            System.out.println("Choose size: \nS - Small  \nM - Medium  \nL - Large");
+            System.out.println("Enter B to go back, 0 to cancel drink selection.");
             String choice = scanner.nextLine().trim().toUpperCase();
 
-            if (choice.equals("0"))
-                return null;
+            if (choice.equals("0")) return null;
+            if (choice.equals("B")) {
+                System.out.println("↩️ Returning to previous menu...");
+                return null; // or navigate back to main menu if you have one
+            }
 
             switch (choice) {
-                case "S" -> {
-                    size = "SMALL";
-                }
-                case "M" -> {
-                    size = "MEDIUM";
-                }
-                case "L" -> {
-                    size = "LARGE";
-                }
+                case "S" -> size = "SMALL";
+                case "M" -> size = "MEDIUM";
+                case "L" -> size = "LARGE";
                 default -> {
-                    System.out.println("❌ Invalid entry; please enter S, M, L, or 0.");
+                    System.out.println("❌ Invalid entry; please enter S, M, L, B, or 0.");
                     continue;
                 }
             }
-            break;
+            break; // valid size chosen
         }
 
-        List<String> flavours = Drink.drinks.get(size);
-        String flavour = selectFromList(size + " .Drink Options", flavours);
-        if (flavour == null || flavour.equals("BACK")) {
-            System.out.println(".Drink skipped.");
-            return null;
-        }
+        // Flavor selection
+        while (true) {
+            List<String> flavours = Drink.drinks.get(size);
+            String flavour = selectFromList(size + " Drink Options", flavours);
 
-        return new Drink(size, flavour);
+            if (flavour == null || flavour.equalsIgnoreCase("BACK")) {
+                System.out.println("↩️ Returning to size selection...");
+                return addDrink(); // Restart drink selection from size
+            }
+
+            System.out.println("✅ Selected: " + flavour + " (" + size + ")");
+            return new Drink(size, flavour);
+        }
     }
 
+    // Chips selection
     public Chips addChips() {
         System.out.println("\n=*=*=*=*=*=*=*=*=*= Add Chips *=*=*=*=*=*=*=*=*=*=*=*=*=*=");
 
@@ -258,6 +273,7 @@ public class Menu {
         return new Chips(flavour);
     }
 
+    // Signature sandwich options with topping customization
     public Sandwich special() {
         System.out.println("Choose a sandwich: ");
         System.out.println("=*=*=*=*=*=*=*=*=*== Special Sandwiches =*=*=*=*=*=*=*=*=* 1- BLT\n2- Philly Cheese Steak\n3- Spicy Romance\n0- Cancel");
@@ -278,7 +294,7 @@ public class Menu {
         List<Topping> current = selected.getMutableToppings();
         System.out.println("Would you like to remove any toppings? (Yes/No): ");
         String remove = scanner.nextLine().trim().toLowerCase();
-        //prompt("Would you like to remove any toppings? (y/n): ").toLowerCase();
+
         if (remove.equals("y")) {
             for (int i = 0; i < current.size(); i++) {
                 Topping topping = current.get(i);
@@ -342,6 +358,7 @@ public class Menu {
         );
     }
 
+    // Helper method to display options and let the user choose one
     private String selectFromList(String label, List<String> options) {
         System.out.printf("\nAvailable: %s\n", label);
         for (int i = 0; i < options.size(); i++) {
