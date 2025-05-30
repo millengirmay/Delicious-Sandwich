@@ -59,14 +59,30 @@ Overrides price calculation to use fixed price + extra toppings cost.
 
 *****Interesting Code Highlights***
 
-public void checkout() {
-    for (ItemCost item : items) {
-        if (item instanceof SignatureSandwich special) {
+    public void checkout() {
+        for (ItemCost item : items) {
+            if (item instanceof SignatureSandwich special) {
             // Special sandwich handling
-        } else if (item instanceof Sandwich sandwich) {
+            } else if (item instanceof Sandwich sandwich) {
             // Regular sandwich handling
-        } else {
+         } else {
             // Drink or chips handling
         }
+     }
     }
-}
+
+****Screnshots***
+<img width="943" alt="1" src="https://github.com/user-attachments/assets/41b321a9-9507-4ad1-ae28-8de603caeff4" />
+<img width="950" alt="2" src="https://github.com/user-attachments/assets/196398f5-4798-43f4-8e0e-3d8c68a216b9" />
+<img width="936" alt="3" src="https://github.com/user-attachments/assets/01610797-e81f-4c3a-bcf5-b16d53adf039" />
+<img width="957" alt="4" src="https://github.com/user-attachments/assets/21efb293-1478-4809-8947-b82a7c33006e" />
+<img width="932" alt="5" src="https://github.com/user-attachments/assets/63a8e0fc-43ae-4a76-8824-5bd0442c78d0" />
+<img width="943" alt="6" src="https://github.com/user-attachments/assets/fe501ede-04b4-41cd-98b5-d998c1dbea65" />
+<img width="944" alt="7" src="https://github.com/user-attachments/assets/230acd4d-44f8-40a9-a213-c5a64d9e854c" />
+
+
+
+
+
+
+
