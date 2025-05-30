@@ -41,7 +41,7 @@ public class Order {
         }
 
         public void checkout() {
-            System.out.println("\n=*=*=*=*=*=*=*=*=*= .Order Summary =*=*=*=*=*=*=*=*=");
+            System.out.println("\n=*=*=*=*=*=*=*=*=*= Order Summary =*=*=*=*=*=*=*=*=");
             double subtotal = 0.0;
             StringBuilder sb = new StringBuilder();
             sb.append("Layered Love Deli Receipt\n");
