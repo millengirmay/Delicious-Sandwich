@@ -112,8 +112,7 @@ public class Menu {
             }
         }
     }
-
-    // Custom sandwich creation
+    // Method to guide the user through creating a sandwich
     public Sandwich addSandwich() {
         System.out.println("\n=*=*=*=*=*=*=*=*=*= Get Ready your Sandwich *=*=*=*=*=*=*=*=*=*=*=*=*=");
 
@@ -121,14 +120,33 @@ public class Menu {
         String bread = null;
         while (bread == null) {
             System.out.println("\n🥖 CHOOSE YOUR BREAD TYPE");
-            String chosenBread = selectFromList("Available bread options", Topping.breadOptions);
-            if (chosenBread == null) {
-                System.out.println("⚠️ Bread selection skipped. You must choose a bread type to continue.");
-            } else if (chosenBread.equals("BACK")) {
-                return null; // Exit sandwich creation
-            } else {
-                bread = chosenBread;
-                System.out.println("✅ " + bread + " bread selected");
+            System.out.println("Available: bread options");
+
+            // Display numbered bread options
+            for (int i = 0; i < Topping.breadOptions.size(); i++) {
+                System.out.println("[" + (i + 1) + "] " + Topping.breadOptions.get(i));
+            }
+            System.out.println("👉 Choose a number 1 – " + Topping.breadOptions.size());
+            System.out.println("Enter 0 to cancel " + "or" + " Enter B to go back to main menu");
+
+            String input = scanner.nextLine().trim();
+
+            if (input.equals("0")) {
+                return null; // cancel
+            } else if (input.equalsIgnoreCase("B")) {
+                return null; // go back to main menu
+            }
+
+            try {
+                int choice = Integer.parseInt(input);
+                if (choice >= 1 && choice <= Topping.breadOptions.size()) {
+                    bread = Topping.breadOptions.get(choice - 1);
+                    System.out.println("✅ " + bread + " bread selected");
+                } else {
+                    System.out.println("❌ Invalid choice. Please enter a number between 1 and " + Topping.breadOptions.size());
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("❌ Invalid input. Please enter a number.");
             }
         }
 
@@ -167,9 +185,9 @@ public class Menu {
 
         while (currentCategoryIndex < toppingGroups.length) {
             String category = toppingGroups[currentCategoryIndex];
-            System.out.println("\n--- " + category + " TOPPINGS ---");
+            System.out.println("\n-*-*-*-*- " + category + " TOPPINGS -*-*-*-*-");
 
-            String chosen = selectFromList("Choose " + category + " (0 to skip, B to go back)",
+            String chosen = selectFromList("Choose " + category ,
                     Topping.options.get(category));
 
             if (chosen == null) {
@@ -192,7 +210,7 @@ public class Menu {
                 System.out.println("✅ Added: " + chosen);
 
                 // Ask if they want another from same category
-                System.out.print("Add another " + category + " topping? (yes/no): ");
+                System.out.println("Add another " + category + " topping? (yes/no): ");
                 String another = scanner.nextLine().trim().toLowerCase();
                 if (!another.startsWith("y")) {
                     currentCategoryIndex++;
@@ -203,7 +221,7 @@ public class Menu {
         // Toasting
         System.out.println("\n TOASTING OPTION");
         boolean toasted = false;
-        System.out.print("Would you like it toasted? (yes/no/B to go back): ");
+        System.out.println("Would you like it toasted? (yes/no/B to go back): ");
         String toast = scanner.nextLine().trim().toLowerCase();
 
         if (toast.equalsIgnoreCase("b")) {
@@ -365,7 +383,7 @@ public class Menu {
             System.out.println("[" + (i + 1) + "] " + options.get(i));
         }
         while (true) {
-            System.out.println("Choose a number 1 – " + options.size() + ", 0 to skip, or B to back.");
+            System.out.println("Choose a number 1 – " + options.size());
             String input = scanner.nextLine().trim();
             if (input.equalsIgnoreCase("B")) return "BACK";
             try {
