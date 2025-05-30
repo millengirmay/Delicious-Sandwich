@@ -210,9 +210,9 @@ java DELIciousApp
 
     Welcome to Layered Love Deli!
      1. Get ready Your Own Sandwich
-     2. Choose Signature Sandwich
-     3. Add Chips
-     4. Add Drink
+     2. Add Chips
+     3. Add Drink
+     4. Choose Signature Sandwich
      5. Checkout
 
     >> Sandwich (12", White, Toasted)
@@ -221,12 +221,12 @@ java DELIciousApp
     >> Drink: Medium
 
      Total: $18.50
-    Thank you for visiting Layered love Deli!
+    Thank you for choosing Layered love Deli!
 
     
 *****📦 Future Improvements*****
 
-GUI integration (Swing or JavaFX)
+GUI integration 
 
 Save/load previous orders
 
