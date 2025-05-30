@@ -38,7 +38,7 @@ public class Menu {
                     if (sandwich != null) {
                         order.addItem(sandwich);
                     } else {
-                        System.out.println(".Sandwich not added to your order.");
+                        System.out.println("Sandwich not added to your order.");
                     }
                 }
                 case "2" -> {
@@ -46,7 +46,7 @@ public class Menu {
                     if (drink != null) {
                         order.addItem(drink);
                     } else {
-                        System.out.println(".Drink not added to your order.");
+                        System.out.println("Drink not added to your order.");
                     }
                 }
                 case "3" -> {
@@ -54,7 +54,7 @@ public class Menu {
                     if (chips != null) {
                         order.addItem(chips);
                     } else {
-                        System.out.println(".Chips not added to your order.");
+                        System.out.println("Chips not added to your order.");
                     }
                 }
                 case "4" -> {
@@ -97,7 +97,7 @@ public class Menu {
                     }
                 }
                 case "0" -> {
-                    System.out.println(".Order canceled. Returning to home.");
+                    System.out.println("Order canceled. Returning to home.");
                     ordering = false;
                 }
                 default -> System.out.println("Invalid selection. please try again.");
@@ -106,7 +106,7 @@ public class Menu {
     }
 
     public Sandwich addSandwich() {
-        System.out.println("\n=*=*=*=*=*=*=*=*=*= Make your Sandwich *=*=*=*=*=*=*=*=*=*=*=*=*=");
+        System.out.println("\n=*=*=*=*=*=*=*=*=*= Get Ready your Sandwich *=*=*=*=*=*=*=*=*=*=*=*=*=");
 
         // 1. Bread selection first
         String bread = null;
@@ -126,7 +126,7 @@ public class Menu {
         // 2. Size selection
         int size = 0;
         while (size != 4 && size != 8 && size != 12) {
-            System.out.println("\n📏 STEP 2: CHOOSE YOUR SANDWICH SIZE");
+            System.out.println("\n📏 CHOOSE YOUR SANDWICH SIZE");
             System.out.println("Options: 4\", 8\", or 12\"");
             System.out.println("Enter 0 to cancel sandwich creation");
             System.out.println("Enter B to go back to bread selection");
@@ -151,7 +151,7 @@ public class Menu {
         System.out.println("✅ " + size + "\" sandwich size selected");
 
         // 3. Toppings selection
-        System.out.println("\n🥬 STEP 3: CHOOSE YOUR TOPPINGS (Enter 0 to skip a category, B to go back)");
+        System.out.println("\n🥬 CHOOSE YOUR TOPPINGS (Enter 0 to skip a category, B to go back)");
         List<Topping> toppings = new ArrayList<>();
         String[] toppingGroups = {"MEAT", "EXTRA MEAT", "CHEESE", "EXTRA CHEESE", "REGULAR", "SAUCE", "SIDE"};
         int currentCategoryIndex = 0;
@@ -192,7 +192,7 @@ public class Menu {
         }
 
         // 4. Toasting option
-        System.out.println("\n🔥 STEP 4: TOASTING OPTION");
+        System.out.println("\n TOASTING OPTION");
         boolean toasted = false;
         System.out.print("Would you like it toasted? (yes/no/B to go back): ");
         String toast = scanner.nextLine().trim().toLowerCase();
@@ -210,7 +210,7 @@ public class Menu {
     }
     public Drink addDrink() {
 
-        System.out.println("\n=*=*=*=*=*=*=*=*= Add a .Drink =*=*=*=*=*=*=*=*=*=*=");
+        System.out.println("\n=*=*=*=*=*=*=*=*= Add a Drink =*=*=*=*=*=*=*=*=*=*=");
         String size = null;
         while (true) {
             System.out.println("Choose size: \nSmall  \nMedium  \nLarge:");
@@ -248,7 +248,7 @@ public class Menu {
     }
 
     public Chips addChips() {
-        System.out.println("\n=*=*=*=*=*=*=*=*=*= Add .Chips *=*=*=*=*=*=*=*=*=*=*=*=*=*=");
+        System.out.println("\n=*=*=*=*=*=*=*=*=*= Add Chips *=*=*=*=*=*=*=*=*=*=*=*=*=*=");
 
         String flavour = selectFromList(".Chips options", Chips.chipsOptions);
         if ("BACK".equals(flavour) || flavour == null) {
@@ -268,7 +268,7 @@ public class Menu {
             case "2" -> selected = SignatureSandwich.PhillyCheeseSteak();
             case "3" -> selected = SignatureSandwich.SpicyRomance();
             default -> {
-                System.out.println("=*=*=*=*=*=Return to .Order menu...");
+                System.out.println("=*=*=*=*=*= Return to Order menu...");
                 return null;
             }
         }

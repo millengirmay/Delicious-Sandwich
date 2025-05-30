@@ -3,7 +3,7 @@ package com.layeredLoveDeli;
 import java.util.List;
 import java.util.Map;
 
-//Represents a .Drink item with size and flavor.
+  //Represents a .Drink item with size and flavor.
 
 public class Drink implements ItemCost {
 
@@ -11,8 +11,8 @@ public class Drink implements ItemCost {
     private final String flavor; // e.g., COKE, SPRITE
 
     public Drink(String size, String flavor) {
-        this.size = size.toUpperCase();      // Normalize to uppercase
-        this.flavor = flavor.toUpperCase();  // Normalize to uppercase
+        this.size = size.toUpperCase();
+        this.flavor = flavor.toUpperCase();
     }
 
     // Available drink options by size

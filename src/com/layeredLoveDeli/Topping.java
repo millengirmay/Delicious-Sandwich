@@ -12,10 +12,10 @@ public class Topping {
         this.name = name;
     }
 
-    //bread option
+    // bread option
     public static final List<String> breadOptions = List.of("WHITE", "WHEAT", "RYE", "WRAP", "SOURDOUGH", "BAGEL");
 
-    //topping options
+    // topping options
     public static final Map<String, List<String>> options = Map.of(
             "MEAT", List.of("Steak", "Ham", "Salami", "Pastrami", "Roast Beef", "Chicken", "Bacon"),
             "EXTRA MEAT", List.of("Steak", "Ham", "Salami", "Pastrami", "Roast Beef", "Chicken", "Bacon"),
