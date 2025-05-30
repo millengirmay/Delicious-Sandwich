@@ -1,4 +1,5 @@
-Project Overview
+****Project Overview****
+
 The Sandwich Ordering System is a Java-based application modeling a customizable sandwich shop menu. It supports:
 
 Different sandwich sizes (4, 8, 12 inches)
@@ -11,16 +12,22 @@ Price calculation based on sandwich size and toppings
 
 This modular design leverages Java OOP principles with inheritance, encapsulation, and interface implementation.
 
-Key Features
+****Key Features****
+
 Sandwich customization: Select size, bread, toppings, and toasting option.
+
 
 Topping pricing: Costs vary by topping category and sandwich size.
 
+
 Signature sandwiches: Predefined popular sandwiches with fixed base price.
+
 
 Robust validation: Ensures valid sizes, bread types, and topping categories.
 
+
 Extensibility: Easily add new topping categories, bread types, or signature sandwiches.
+
 
 Main Classes and Interfaces
 ItemCost (interface)
