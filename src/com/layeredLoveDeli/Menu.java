@@ -362,7 +362,7 @@ public class Menu {
     private String selectFromList(String label, List<String> options) {
         System.out.printf("\nAvailable: %s\n", label);
         for (int i = 0; i < options.size(); i++) {
-            System.out.println((i + 1) + ") " + options.get(i));
+            System.out.println("[" + (i + 1) + "] " + options.get(i));
         }
         while (true) {
             System.out.println("Choose a number 1 – " + options.size() + ", 0 to skip, or B to back.");
