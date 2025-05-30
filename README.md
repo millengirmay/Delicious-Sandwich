@@ -22,6 +22,8 @@ Price calculation based on sandwich size and toppings
 This modular design leverages Java OOP principles with inheritance, encapsulation, and interface implementation.
 
 
+
+
 ****Key Features****
 
 Sandwich customization: Select size, bread, toppings, and toasting option.
@@ -73,6 +75,8 @@ Represents special, named sandwiches with a fixed base price ($12).
 Includes extra toppings that add to the price.
 
 Overrides price calculation to use fixed price + extra toppings cost.
+
+
 
 *****Interesting Code Highlights*****
 
