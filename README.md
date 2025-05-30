@@ -87,11 +87,11 @@ Fields: int size (4, 8, 12 inches), String breadType, boolean toasted
 
 List<Topping> toppings
 
-Methods: getPrice() → base + topping prices
+Methods: getPrice() → base + topping prices, toString() → summary of sandwich
 
-       toString() → summary of sandwich
 
 🔹 SignatureSandwich extends Sandwich
+
 Represents predefined sandwiches with fixed base price.
 
 Fields: String name
