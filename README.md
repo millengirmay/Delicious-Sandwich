@@ -56,3 +56,17 @@ Represents special, named sandwiches with a fixed base price ($12).
 Includes extra toppings that add to the price.
 
 Overrides price calculation to use fixed price + extra toppings cost.
+
+*****Interesting Code Highlights***
+
+public void checkout() {
+    for (ItemCost item : items) {
+        if (item instanceof SignatureSandwich special) {
+            // Special sandwich handling
+        } else if (item instanceof Sandwich sandwich) {
+            // Regular sandwich handling
+        } else {
+            // Drink or chips handling
+        }
+    }
+}
